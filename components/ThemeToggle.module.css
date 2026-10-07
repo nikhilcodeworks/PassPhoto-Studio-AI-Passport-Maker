@@ -1,0 +1,74 @@
+.toggleBtn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.toggleBtn:hover {
+  transform: translateY(-2px);
+  background: var(--surface-3);
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.2);
+}
+
+.toggleBtn:active {
+  transform: scale(0.95);
+}
+
+.iconWrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunIcon, .moonIcon {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Light mode state */
+[data-theme='light'] .sunIcon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+[data-theme='light'] .moonIcon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+/* Dark mode state */
+[data-theme='dark'] .sunIcon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+[data-theme='dark'] .moonIcon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Adding a subtle glow when hovered in dark mode */
+[data-theme='dark'] .toggleBtn:hover {
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+
+/* Adding a warmer glow when hovered in light mode */
+[data-theme='light'] .toggleBtn:hover {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+}

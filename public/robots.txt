@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://passphoto-studio.com/sitemap.xml
